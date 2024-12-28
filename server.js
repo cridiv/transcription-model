@@ -46,3 +46,9 @@ app.post("/genImage", async (req, res) => {
         res.status(500).send({ error: error.message });
     }
 });
+
+
+const port = process.env.PORT || 4000;
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
