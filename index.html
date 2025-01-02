@@ -1,45 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>image-transcription</title>
-  <link rel="stylesheet" href="public/styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech to Text Converter</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div id="main-content">
-      <img class="icon-wil" src="public/images/icon.jpg">
-    <div class="main">
-        <div class="main-content-container">
-            <div class="image-gen-container">
-                <img src="public/images/picture.png" class="gen-image">
-            </div>
-            <p id="output"></p>
-
-            <a href="public/images/picture.png" download="ai-image.png" class="download-btn"><span class="icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-            </svg>
-            </span>Download</a>
-           
-            <button id="record">
-                <div class="icon">
-                  <ion-icon name="mic-outline"></ion-icon>
-                  <img src="public/bars.svg" alt="" />
-                </div>
-              </button>  
-          
+    <div class="welcome-screen">
+        <div class="welcome-content">
+            <h1>Welcome to Willow AI</h1>
+            <p>Speak. Imagine. Create. </p>
         </div>
-        </div>
-    <script src="app.js"></script>
-</body>
-</html>
-
     </div>
-  </div>
-  </div>    
-  </div>
-</div>
+
+    <div class="main">
+        <div class="container">
+            <div class="sidebar">
+              <div class="app-description">
+                <h2>Willow AI: Speech to Text Converter</h2>
+                <p>Transform your spoken words into instant text with our cutting-edge speech recognition technology. Simply click the microphone button, speak naturally, and watch as your words are transcribed in real-time.</p>
+                
+                <div class="feature-highlights">
+                    <h3>Key Features:</h3>
+                    <ul>
+                        <li>🎙️ Instant Speech Recognition</li>
+                        <li>📝 Real-time Text Transcription</li>
+                        <li>🖼️ AI-Generated Visual Representation</li>
+                        <li>📥 Easy Download Options</li>
+                    </ul>
+                </div>
+            
+                <div class="how-to-use">
+                    <h3>How to Use:</h3>
+                    <ol>
+                        <li>Click the microphone button</li>
+                        <li>Speak clearly into your device</li>
+                        <li>Watch your speech convert to text</li>
+                        <li>Download or copy your transcription</li>
+                    </ol>
+                </div>
+            
+                <p class="disclaimer">
+                    <small>Powered by advanced AI technology. Works best with clear audio and stable internet connection.</small>
+                </p>
+            </div>
+            
+            </div>
+            <div class="main-content">
+              <div class="topic">
+                <h1>Willow AI</h1>
+              </div>
+                <div class="image-gen-container">
+                    <img src="images/picture.png" class="gen-image">
+                </div>
+                <p id="output"></p>
+
+                <div class="download-language-container">
+                <a href="images/picture.png" download="ai-image.png" class="download-btn">
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                        </svg>
+                    </span>
+                    Download
+                </a>
+                 
+        <select class="language-selector">
+            <option value="en-US">English (US)</option>
+            <option value="es-ES">Spanish</option>
+            <option value="fr-FR">French</option>
+            <option value="de-DE">German</option>
+            <option value="zh-CN">Mandarin</option>
+            <option value="ar-SA">Arabic</option>
+            <option value="hi-IN">Hindi</option>
+            <option value="ja-JP">Japanese</option>
+        </select>
+    </div>
+                <button id="record">
+                    <div class="icon">
+                        <ion-icon name="mic-outline"></ion-icon>
+                        <img src="bars.svg" alt="" />
+                    </div>
+                </button>
+                <div class="ai-insights-container">
+                    <div class="ai-insights">
+                        <h3>AI Insights</h3>
+                        <div id="insights-content" class="insight-card">
+                            <div class="loading-spinner" id="insights-loader">
+                                <div class="spinner"></div>
+                                <p>Generating insights...</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+           
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
