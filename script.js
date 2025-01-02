@@ -65,43 +65,34 @@ const genImageWithText = async (recordedText) => {
     await genImage();
     prompt = "";
 };
+downloadBtn.addEventListener('click', async (event) => {
+    event.preventDefault();
 
-downloadBtn.addEventListener('click', () => {
     if (generatedImage.src && !generatedImage.src.includes('loading') && !generatedImage.src.includes('error')) {
-        const link = document.createElement('a');
-        link.href = generatedImage.src;
-        link.download = `generated-image-${new Date().toISOString()}.jpg`;
-        
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    } else {
-        alert("No image to download. Please generate an image first.");
-    }
-});
-
-const downloadImage = async () => {
-    try {
+      try {
         const response = await fetch(generatedImage.src);
         const blob = await response.blob();
-        
+  
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
         link.download = `generated-image-${new Date().toISOString()}.jpg`;
-        
+  
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        
+  
         URL.revokeObjectURL(link.href);
-    } catch (error) {
+      } catch (error) {
         console.error("Download failed:", error);
         alert("Failed to download image");
+      }
+    } else {
+      alert("No image to download. Please generate an image first.");
     }
-};
-
-downloadBtn.href = '';
-downloadBtn.download = 'generated-image.jpg';
+  });
+  
+  downloadBtn.href = '#';
+  downloadBtn.download = 'generated-image.jpg';
 
 document.addEventListener('DOMContentLoaded', () => {
     const welcomeScreen = document.querySelector('.welcome-screen');
@@ -111,3 +102,52 @@ document.addEventListener('DOMContentLoaded', () => {
         mainContainer.classList.add('visible');
     }, 3500);
 });
+
+const popupForm = document.getElementById("popupForm");
+const overlay = document.getElementById("overlay");
+const closeButton = document.getElementById("closeButton");
+const form = document.querySelector("#popupForm form");
+let hasPopupShown = false;
+let lastScrollTop = window.scrollY;
+
+function showPopup() {
+  if (!hasPopupShown) {
+    popupForm.style.display = "block";
+    hasPopupShown = true; 
+  }
+}
+
+closeButton.addEventListener("click", () => {
+  popupForm.style.display = "none";
+  overlay.style.display = "none";
+});
+
+function closePopup() {
+    popupForm.style.display = "none"; 
+    overlay.style.display = "none";
+  }
+
+closeButton.addEventListener("click", closePopup);
+
+setTimeout(showPopup, 6000);
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    
+    closePopup();
+    
+    alert("Form Submitted!"); 
+  });
+
+  const themeToggle = document.getElementById('theme-toggle');
+const prefersLightMode = window.matchMedia('(prefers-color-scheme: light)');
+
+function toggleTheme() {
+  document.body.classList.toggle('light-mode');
+}
+
+themeToggle.addEventListener('click', toggleTheme);
+
+if (prefersLightMode.matches) {
+  document.body.classList.add('light-mode');
+}
