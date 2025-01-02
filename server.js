@@ -16,7 +16,7 @@ const genImage = async (prompt) => {
         const response = await axios.post(
             'https://api.openai.com/v1/images/generations',
             {
-                prompt: prompt,
+                prompt: "A man propsing to his woman",
                 n: 1,
                 size: "1024x1024",
                 response_format: "b64_json",
