@@ -7,12 +7,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
 app.listen(4000, () => {
     console.log("Server is running on port 4000");
 });
@@ -35,7 +29,7 @@ const genImage = async (prompt) => {
             }
         );
 
-        const img = response.data.data[0].b64_json; 
+        const img = response.data.data[0].b64_json;
         return img;
     } catch (error) {
         console.error("Error generating image:", error.response?.data || error.message);
@@ -51,10 +45,4 @@ app.post("/genImage", async (req, res) => {
     } catch (error) {
         res.status(500).send({ error: error.message });
     }
-});
-
-
-const port = process.env.PORT || 4000;
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
 });
