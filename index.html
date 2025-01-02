@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speech to Text Converter</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 </head>
 <body>
     <div class="welcome-screen">
@@ -23,7 +24,7 @@
                 
                 <div class="feature-highlights">
                     <h3>Key Features:</h3>
-                    <ul>
+                    <ul>n
                         <li>🎙️ Instant Speech Recognition</li>
                         <li>📝 Real-time Text Transcription</li>
                         <li>🖼️ AI-Generated Visual Representation</li>
@@ -51,6 +52,14 @@
               <div class="topic">
                 <h1>Willow AI</h1>
               </div>
+              
+              <div class="theme-toggle-container">
+                <label class="switch">
+                  <input type="checkbox" id="theme-toggle">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+
                 <div class="image-gen-container">
                     <img src="images/picture.png" class="gen-image">
                 </div>
@@ -100,6 +109,19 @@
            
         </div>
     </div>
+
+    <div id="overlay"></div>
+    <div id="popupForm">
+        <h2>Get the Latest Updates</h2>
+      <form>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"placeholder="ex: name@example.com" required>
+        <button type="submit" name="submit">Subscribe Now</button>
+      </form>
+      <button id="closeButton">Close</button>
+    </div>
+    
     <script src="script.js"></script>
+
 </body>
 </html>
